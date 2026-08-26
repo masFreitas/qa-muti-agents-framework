@@ -1,0 +1,20 @@
+# Especificação de Projeto: Template de Squad de QA Agêntico com Playwright
+
+## 1. Visão Geral do Projeto
+Criar um repositório template open-source para automação de testes de software com Inteligência Artificial. O objetivo é permitir que qualquer engenheiro de QA clone este repositório e utilize um time estruturado de agentes (agents) e habilidades (skills) diretamente dentro de seu ambiente de desenvolvimento (Anti-Gravity, Claude, Cursor, Copilot), sem depender de plataformas pagas ou frameworks complexos de orquestração em Python.
+
+O projeto segue a abordagem de Agentic Workspace com Living Knowledge Base (camada de memória viva), garantindo que a IA compreenda o contexto completo da aplicação antes de planejar e automatizar os testes.
+
+## 2. Princípios Arquiteturais
+
+1. Separação de Papéis e Capacidades:
+   * Agentes (.agents/agents/): Personas com objetivos de negócio, responsabilidade de julgamento e poder de decisão.
+   * Skills (.agents/skills/): Padrões técnicos, templates estruturais e comandos de execução reutilizáveis.
+
+2. Memória Contextual Persistente (.agents/context/):
+   * A IA consulta arquivos de regras de negócio e rotas de navegação antes de gerar testes.
+   * A cada nova entrega automatizada, a IA atualiza os arquivos de contexto com as novas telas, métodos de Page Object e regras aprendidas.
+
+3. Multiplataforma e Compatibilidade de Editores:
+   * Estrutura nativa para Anti-Gravity via .agents/.
+   * Arquivos ponte leves para Claude (CLAUDE.md), Cursor (.cursor/rules/) e GitHub Copilot (.github/).
