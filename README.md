@@ -24,7 +24,7 @@ Este projeto adota o conceito de **Agentic Workspace com Living Knowledge Base (
 | Agente | Responsabilidade | Skills Chave |
 | :--- | :--- | :--- |
 | **01. Analista de Requisitos** | Mapeia regras de negócio e critérios de aceite no padrão INVEST | `extrair-criterios-aceite`, `gerenciar-contexto-negocio`, `inicializar-system-overview` |
-| **02. Analista de Testes** | Converte critérios de aceite em planos de teste BDD/Gherkin | `formatar-plano-teste`, `gerenciar-contexto-negocio` |
+| **02. Analista de Testes** | Converte critérios de aceite em planos de teste com passos numerados e matriz de rastreabilidade | `formatar-plano-teste`, `gerenciar-contexto-negocio` |
 | **03. Engenheiro de Automação** | Gera e mantém Page Objects e Specs no Playwright | `gerar-page-object`, `gerar-spec-playwright` |
 | **04. Revisor & Correção (Self-Healing)** | Diagnostica falhas nos relatórios/logs e corrige seletores/timeouts | `analisar-falhas-playwright` |
 | **05. Relator de Status** | Consolida relatórios executivos de cobertura e qualidade | `gerar-status-report` |

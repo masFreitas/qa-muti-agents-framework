@@ -52,6 +52,10 @@ qa-agentic-workspace/
 |   `-- context/
 |       |-- system-overview.md
 |       `-- README.md
+|-- plano-teste/
+|   |-- {modulo}-plan.md
+|   `-- tarefas/
+|       `-- {modulo}-tarefas.json
 |-- pages/
 |-- tests/
 |-- .cursor/
@@ -73,10 +77,10 @@ qa-agentic-workspace/
 * Saída: Documento com critérios de aceite estruturados e regras validadas.
 
 ### 02. Analista de Testes
-* Responsabilidade: Consultar a pasta .agents/context/ para entender dependências de tela e converter os critérios de aceite em planos de teste detalhados e cenários BDD/Gherkin.
+* Responsabilidade: Consultar a pasta .agents/context/ para entender dependências de tela e converter os critérios de aceite em planos de teste detalhados com passos numerados, matriz de rastreabilidade e arquivo JSON de controle de tarefas de automação.
 * Skills associadas: gerenciar-contexto-negocio (leitura), formatar-plano-teste.
-* Entrada: Critérios de aceite refinados e contexto do sistema.
-* Saída: Plano de testes completo com cenários BDD e matriz de validação.
+* Entrada: Critérios de aceite refinados (docs/requisitos-refinados/) e contexto do sistema (.agents/context/).
+* Saída: Plano de testes em plano-teste/{modulo}-plan.md e arquivo de controle de tarefas em plano-teste/tarefas/{modulo}-tarefas.json.
 
 ### 03. Engenheiro de Automação Playwright
 * Responsabilidade: Criar e atualizar classes de Page Objects em pages/ e especificações de teste em tests/, garantindo o reaproveitamento de componentes e asserções semânticas.
