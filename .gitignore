@@ -10,3 +10,4 @@ node_modules/
 # Python / Byte-compiled
 __pycache__/
 *.py[cod]
+.playwright-cli/

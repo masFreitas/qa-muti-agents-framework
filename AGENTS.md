@@ -15,6 +15,10 @@ O projeto segue a abordagem de Agentic Workspace com Living Knowledge Base (cama
    * A IA consulta arquivos de regras de negócio e rotas de navegação antes de gerar testes.
    * A cada nova entrega automatizada, a IA atualiza os arquivos de contexto com as novas telas, métodos de Page Object e regras aprendidas.
 
-3. Multiplataforma e Compatibilidade de Editores:
+3. Inspeção do DOM em Tempo Real (HARD RULE SEM EXCEÇÃO):
+   * O Engenheiro de Automação DEVE SEMPRE utilizar o Playwright CLI para acessar a aplicação viva, capturar a árvore de acessibilidade e extrair os locators reais antes de criar/editar Page Objects e testes.
+   * É ESTRITAMENTE PROIBIDO adivinhar locators ou utilizar encadeamentos especulativos de fallback (`.or(...)`).
+
+4. Multiplataforma e Compatibilidade de Editores:
    * Estrutura nativa para Anti-Gravity via .agents/.
    * Arquivos ponte leves para Claude (CLAUDE.md), Cursor (.cursor/rules/) e GitHub Copilot (.github/).
