@@ -1,6 +1,6 @@
 ---
 name: inicializar-system-overview
-description: Realiza a entrevista inicial com o usuario para coletar dados globais da aplicacao e gera o arquivo .agents/context/system-overview.md.
+description: Realiza a entrevista inicial com o usuario para coletar dados globais da aplicacao e gera o arquivo .agents/context/system-overview.md. Use quando: (1) Estiver configurando um novo repositorio ou workspace de QA, (2) O arquivo .agents/context/system-overview.md nao existir ou estiver vazio, (3) For solicitada a entrevista ou setup inicial do sistema sob teste.
 ---
 
 # Inicializar System Overview
@@ -31,7 +31,7 @@ Interrompa a execucao e apresente as seguintes perguntas ao usuario:
 3. Quais sao as telas principais da aplicacao e o fluxo macro de navegacao entre elas?
 
 ### 3. Geracao do Arquivo
-Com as respostas, crie o arquivo `.agents/context/system-overview.md` preenchendo todos os blocos estruturais definidos no template.
+Com as respostas, crie o arquivo `.agents/context/system-overview.md` preenchendo todos os blocos estruturais definidos no template de referencia [references/system-overview-template.md](references/system-overview-template.md).
 
 ## Regras e Diretrizes
 * Salvar obrigatoriamente como `system-overview.md` dentro de `.agents/context/`.

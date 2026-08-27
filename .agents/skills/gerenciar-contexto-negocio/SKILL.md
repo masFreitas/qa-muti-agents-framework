@@ -1,6 +1,6 @@
 ---
 name: gerenciar-contexto-negocio
-description: Gerencia a leitura, criacao e atualizacao continua dos arquivos de contexto de negocio e rotas em .agents/context/, mantendo a memoria viva do sistema para guiar analise de requisitos, planejamento de testes e automacao.
+description: Gerencia a leitura, criacao e atualizacao continua dos arquivos de contexto de negocio e rotas em .agents/context/, mantendo a memoria viva do sistema. Use quando precisar: (1) Consultar regras de negocio ou caminhos de navegacao antes de planejar/automatizar testes (modo LEITURA), (2) Registrar o contexto funcional de um novo modulo (modo CRIACAO), (3) Atualizar regras de negocio ou sincronizar Page Objects criados em pages/ (modo ATUALIZACAO).
 ---
 
 # Gerenciar Contexto de Negocio
