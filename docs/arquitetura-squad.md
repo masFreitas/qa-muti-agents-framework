@@ -68,6 +68,7 @@ flowchart TD
     US --> A1
     
     %% Agente 1
+    A1 -->|Skill: inicializar-system-overview| S_SO
     A1 <-->|Leitura & Atualização| S_CTX
     S_CTX <--> MemoryLayer
     A1 -->|Skill: extrair-criterios-aceite| S_REQ
@@ -118,7 +119,7 @@ flowchart TD
 
 | Agente | Arquivo de Configuração | Responsabilidade Principal | Skills Utilizadas | Entrada | Saída Esperada |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| **01. Analista de Requisitos** | `.agents/agents/analista-requisitos.agent.md` | Refinar histórias de usuário, validar regras de negócio e atualizar a memória funcional | `extrair-criterios-aceite`, `gerenciar-contexto-negocio` | User Story / Requisito bruto | `docs/requisitos-refinados/{modulo}.md` |
+| **01. Analista de Requisitos** | `.agents/agents/analista-requisitos.agent.md` | Refinar histórias de usuário, validar regras de negócio e atualizar a memória funcional | `inicializar-system-overview`, `extrair-criterios-aceite`, `gerenciar-contexto-negocio` | User Story / Requisito bruto | `docs/requisitos-refinados/{modulo}.md` |
 | **02. Analista de Testes** | `.agents/agents/analista-testes.agent.md` | Criar planos de teste detalhados em passos numerados, matriz de rastreabilidade e arquivo JSON de tarefas | `formatar-plano-teste`, `gerenciar-contexto-negocio` | Requisitos Refinados + `.agents/context/` | `plano-teste/{modulo}-plan.md` e `{modulo}-tarefas.json` |
 | **03. Engenheiro de Automação** | `.agents/agents/playwright-test-generator.agent.md` | Desenvolver classes Page Object (POM) e suítes de teste Playwright executáveis | `gerar-page-object`, `gerar-spec-playwright`, `playwright-cli` | Plano de Testes + Fila JSON | `pages/*.ts` e `tests/*.spec.ts` |
 | **04. Revisor (Self-Healing)** | `.agents/agents/playwright-test-healer.agent.md` | Diagnosticar falhas de execução, atualizar seletores quebrados e ajustar timeouts | `analisar-falhas-playwright`, `playwright-cli` | Error Logs, Stacktraces, Specs | Correção em `pages/` e `tests/` |

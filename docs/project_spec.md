@@ -71,8 +71,8 @@ qa-agentic-workspace/
 ## 4. Mapeamento de Agentes e Responsabilidades
 
 ### 01. Analista de Requisitos
-* Responsabilidade: Ler histórias de usuário brutas, identificar regras de negócio, critérios de aceite no padrão INVEST e cenários de exceção.
-* Skills associadas: extrair-criterios-aceite, gerenciar-contexto-negocio (leitura).
+* Responsabilidade: Ler histórias de usuário brutas, validar a existência da memória viva global (system-overview.md), identificar regras de negócio, critérios de aceite no padrão INVEST e cenários de exceção.
+* Skills associadas: inicializar-system-overview, extrair-criterios-aceite, gerenciar-contexto-negocio (leitura e criação).
 * Entrada: História de usuário ou descrição funcional da tarefa.
 * Saída: Documento com critérios de aceite estruturados e regras validadas.
 
