@@ -56,6 +56,7 @@ Assim que as regras forem validadas com o usuário:
    - *Nota:* Deixe a seção de Page Objects intacta para ser preenchida posteriormente pelo Engenheiro de Automação.
 
 ## Step 4: Geração dos Critérios de Aceite Estruturados
+Salvar a entrega como `docs/requisitos-refinados/{modulo}.md`.
 Transforme a história refinada em critérios de aceite claros para o Analista de Testes, seguindo o padrão de entrega abaixo.
 
 # Output Format Standard

@@ -23,11 +23,21 @@ Este projeto adota o conceito de **Agentic Workspace com Living Knowledge Base (
 
 | Agente | Responsabilidade | Skills Chave |
 | :--- | :--- | :--- |
-| **01. Analista de Requisitos** | Mapeia regras de negócio e critérios de aceite no padrão INVEST | `extrair-criterios-aceite`, `gerenciar-contexto-negocio` |
+| **01. Analista de Requisitos** | Mapeia regras de negócio e critérios de aceite no padrão INVEST | `extrair-criterios-aceite`, `gerenciar-contexto-negocio`, `inicializar-system-overview` |
 | **02. Analista de Testes** | Converte critérios de aceite em planos de teste BDD/Gherkin | `formatar-plano-teste`, `gerenciar-contexto-negocio` |
 | **03. Engenheiro de Automação** | Gera e mantém Page Objects e Specs no Playwright | `gerar-page-object`, `gerar-spec-playwright` |
 | **04. Revisor & Correção (Self-Healing)** | Diagnostica falhas nos relatórios/logs e corrige seletores/timeouts | `analisar-falhas-playwright` |
 | **05. Relator de Status** | Consolida relatórios executivos de cobertura e qualidade | `gerar-status-report` |
+
+---
+
+## 💡 Como o Fluxo Opera no Primeiro Dia
+
+1. **Início do Setup**: Você clona o template no Anti-Gravity e abre o chat com o **Analista de Requisitos**.
+2. **Detecção da Memória Viva**: O agente percebe que a pasta `.agents/context/` não possui o `system-overview.md`.
+3. **Onboarding Interativo**: O agente invoca a skill `inicializar-system-overview` e faz as 3 perguntas de onboarding para você.
+4. **Resposta e Configuração**: Você responde com a URL base e o fluxo geral da sua empresa.
+5. **Mapeamento do Sistema**: O agente salva o `system-overview.md` e, a partir desse momento, todo o time de QA passa a ter o mapa raiz da aplicação disponível para qualquer história de usuário subsequente.
 
 ---
 
