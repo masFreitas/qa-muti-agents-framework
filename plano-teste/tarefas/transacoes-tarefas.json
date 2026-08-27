@@ -1,0 +1,104 @@
+{
+  "modulo": "transacoes",
+  "plano_teste_ref": "plano-teste/transacoes-plan.md",
+  "requisitos_ref": "docs/requisitos-refinados/transacoes.md",
+  "data_criacao": "2026-08-27",
+  "total_casos_teste": 10,
+  "resumo_status": {
+    "pendentes": 10,
+    "automatizados": 0,
+    "bloqueados": 0
+  },
+  "casos_teste": [
+    {
+      "id": "CT01",
+      "titulo": "Cadastro de Transação de Entrada (Income) e Atualização de Saldo",
+      "criterios_aceite_cobertos": ["CA01"],
+      "status": "PENDENTE",
+      "arquivo_spec": null,
+      "motivo_bloqueio": null,
+      "data_atualizacao": "2026-08-27"
+    },
+    {
+      "id": "CT02",
+      "titulo": "Cadastro de Transação de Saída (Expense) com Meio de Pagamento Comum",
+      "criterios_aceite_cobertos": ["CA02"],
+      "status": "PENDENTE",
+      "arquivo_spec": null,
+      "motivo_bloqueio": null,
+      "data_atualizacao": "2026-08-27"
+    },
+    {
+      "id": "CT03",
+      "titulo": "Cadastro de Despesa com Cartão de Crédito e Vinculação Automática de Fatura",
+      "criterios_aceite_cobertos": ["CA03"],
+      "status": "PENDENTE",
+      "arquivo_spec": null,
+      "motivo_bloqueio": null,
+      "data_atualizacao": "2026-08-27"
+    },
+    {
+      "id": "CT04",
+      "titulo": "Edição de Transação Existente e Recálculo de Saldo",
+      "criterios_aceite_cobertos": ["CA04"],
+      "status": "PENDENTE",
+      "arquivo_spec": null,
+      "motivo_bloqueio": null,
+      "data_atualizacao": "2026-08-27"
+    },
+    {
+      "id": "CT05",
+      "titulo": "Exclusão de Transação e Estorno de Valor no Saldo",
+      "criterios_aceite_cobertos": ["CA05"],
+      "status": "PENDENTE",
+      "arquivo_spec": null,
+      "motivo_bloqueio": null,
+      "data_atualizacao": "2026-08-27"
+    },
+    {
+      "id": "CT06",
+      "titulo": "Cadastro de Transação sem Preencher Categoria (Campo Opcional)",
+      "criterios_aceite_cobertos": ["CA06"],
+      "status": "PENDENTE",
+      "arquivo_spec": null,
+      "motivo_bloqueio": null,
+      "data_atualizacao": "2026-08-27"
+    },
+    {
+      "id": "CT07",
+      "titulo": "Tentativa de Cadastro com Valor Zero ou Negativo",
+      "criterios_aceite_cobertos": ["CA07"],
+      "status": "PENDENTE",
+      "arquivo_spec": null,
+      "motivo_bloqueio": null,
+      "data_atualizacao": "2026-08-27"
+    },
+    {
+      "id": "CT08",
+      "titulo": "Tentativa de Submissão com Campos Obrigatórios em Branco",
+      "criterios_aceite_cobertos": ["CA08"],
+      "status": "PENDENTE",
+      "arquivo_spec": null,
+      "motivo_bloqueio": null,
+      "data_atualizacao": "2026-08-27"
+    },
+    {
+      "id": "CT09",
+      "titulo": "Cadastro de Transações com Datas Passadas e Futuras",
+      "criterios_aceite_cobertos": ["CA09"],
+      "status": "PENDENTE",
+      "arquivo_spec": null,
+      "motivo_bloqueio": null,
+      "data_atualizacao": "2026-08-27"
+    },
+    {
+      "id": "CT10",
+      "titulo": "Alteração do Meio de Pagamento na Edição (Cartão de Crédito <-> Outros Meios)",
+      "criterios_aceite_cobertos": ["CA10"],
+      "status": "PENDENTE",
+      "arquivo_spec": null,
+      "motivo_bloqueio": null,
+      "data_atualizacao": "2026-08-27"
+    }
+  ]
+}
