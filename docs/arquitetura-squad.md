@@ -37,8 +37,8 @@ flowchart TD
     subgraph Squad[" Squad de Agentes (.agents/agents/)"]
         A1["01. Analista de Requisitos\n(analista-requisitos.agent.md)"]
         A2["02. Analista de Testes\n(analista-testes.agent.md)"]
-        A3["03. Engenheiro de Automação\n(playwright-test-generator)"]
-        A4["04. Revisor / Self-Healing\n(playwright-test-healer)"]
+        A3["03. Engenheiro de Automação\n(engenheiro-automacao.agent.md)"]
+        A4["04. Revisor / Self-Healing\n(playwright-test-healer.agent.md)"]
         A5["05. Relator de Status\n(05-relator-status)"]
     end
 
@@ -47,8 +47,8 @@ flowchart TD
         S_CTX["gerenciar-contexto-negocio"]
         S_REQ["extrair-criterios-aceite"]
         S_PLN["formatar-plano-teste"]
-        S_POM["gerar-page-object"]
-        S_SPEC["gerar-spec-playwright"]
+        S_E2E["playwright-e2e"]
+        S_TSK["gerenciar-tarefas-teste"]
         S_CLI["playwright-cli"]
         S_FIX["analisar-falhas-playwright"]
         S_REP["gerar-status-report"]
@@ -58,8 +58,8 @@ flowchart TD
         DOC_REQ["docs/requisitos-refinados/{modulo}.md"]
         DOC_PLN["plano-teste/{modulo}-plan.md"]
         DOC_TSK["plano-teste/tarefas/{modulo}-tarefas.json"]
-        POM_CODE["pages/*.ts (Page Objects)"]
-        TEST_CODE["tests/*.spec.ts (Suítes Playwright)"]
+        POM_CODE["pages/*.page.ts (Page Objects)"]
+        TEST_CODE["tests/{modulo}.spec.ts (Suítes Playwright)"]
         EXEC_LOG["playwright-report / Execution Logs"]
         REP_OUT["Relatório de Cobertura e Qualidade"]
     end
@@ -83,9 +83,9 @@ flowchart TD
 
     %% Agente 3
     DOC_PLN & DOC_TSK --> A3
-    A3 -->|Skill: gerar-page-object| S_POM
-    A3 -->|Skill: gerar-spec-playwright & playwright-cli| S_SPEC & S_CLI
-    A3 -->|Gera| POM_CODE & TEST_CODE
+    A3 -->|Skill: gerenciar-tarefas-teste| S_TSK
+    A3 -->|Skill: playwright-e2e & playwright-cli| S_E2E & S_CLI
+    A3 -->|Gera/Atualiza| POM_CODE & TEST_CODE
     A3 -->|Atualiza Catálogo POM no Contexto| S_CTX
 
     %% Execução & Agente 4 (Self-Healing)
@@ -107,7 +107,7 @@ flowchart TD
     classDef ideStyle fill:#312e81,stroke:#818cf8,stroke-width:1px,color:#e0e7ff
 
     class A1,A2,A3,A4,A5 agentStyle
-    class S_SO,S_CTX,S_REQ,S_PLN,S_POM,S_SPEC,S_CLI,S_FIX,S_REP skillStyle
+    class S_SO,S_CTX,S_REQ,S_PLN,S_E2E,S_TSK,S_CLI,S_FIX,S_REP skillStyle
     class SO,CTX memoryStyle
     class DOC_REQ,DOC_PLN,DOC_TSK,POM_CODE,TEST_CODE,EXEC_LOG,REP_OUT artifactStyle
     class AG,CL,CR,CP ideStyle
@@ -121,7 +121,7 @@ flowchart TD
 | :--- | :--- | :--- | :--- | :--- | :--- |
 | **01. Analista de Requisitos** | `.agents/agents/analista-requisitos.agent.md` | Refinar histórias de usuário, validar regras de negócio e atualizar a memória funcional | `inicializar-system-overview`, `extrair-criterios-aceite`, `gerenciar-contexto-negocio` | User Story / Requisito bruto | `docs/requisitos-refinados/{modulo}.md` |
 | **02. Analista de Testes** | `.agents/agents/analista-testes.agent.md` | Criar planos de teste detalhados em passos numerados, matriz de rastreabilidade e arquivo JSON de tarefas | `formatar-plano-teste`, `gerenciar-contexto-negocio` | Requisitos Refinados + `.agents/context/` | `plano-teste/{modulo}-plan.md` e `{modulo}-tarefas.json` |
-| **03. Engenheiro de Automação** | `.agents/agents/playwright-test-generator.agent.md` | Desenvolver classes Page Object (POM) e suítes de teste Playwright executáveis | `gerar-page-object`, `gerar-spec-playwright`, `playwright-cli` | Plano de Testes + Fila JSON | `pages/*.ts` e `tests/*.spec.ts` |
+| **03. Engenheiro de Automação** | `.agents/agents/engenheiro-automacao.agent.md` | Desenvolver classes Page Object (POM), suítes de teste Playwright executáveis e atualizar status | `playwright-e2e`, `gerenciar-tarefas-teste`, `gerenciar-contexto-negocio`, `playwright-cli` | Plano de Testes + Fila JSON | `pages/*.page.ts`, `tests/{modulo}.spec.ts` e `{modulo}-tarefas.json` atualizado |
 | **04. Revisor (Self-Healing)** | `.agents/agents/playwright-test-healer.agent.md` | Diagnosticar falhas de execução, atualizar seletores quebrados e ajustar timeouts | `analisar-falhas-playwright`, `playwright-cli` | Error Logs, Stacktraces, Specs | Correção em `pages/` e `tests/` |
 | **05. Relator de Status** | `05-relator-status` | Consolidar relatórios executivos de qualidade, cobertura de requisitos e lista de bugs | `gerar-status-report` | Logs do Playwright + Tarefas JSON | Relatório executivo de status |
 
@@ -133,9 +133,9 @@ flowchart TD
 - **`gerenciar-contexto-negocio`**: Protocolo de leitura, criação e atualização contínua dos arquivos de memória em `.agents/context/{modulo}.md`.
 - **`extrair-criterios-aceite`**: Checklist e padrão para estruturação de critérios de aceite no padrão INVEST.
 - **`formatar-plano-teste`**: Template de plano de testes com passos numerados sequenciais, matriz de rastreabilidade e schema JSON.
+- **`playwright-e2e`**: Padrões de escrita do Playwright com TypeScript, Page Object Model (POM), seletores acessíveis e web-first assertions.
+- **`gerenciar-tarefas-teste`**: Leitura de pendências e atualização do status de automação (`AUTOMATIZADO`/`BLOQUEADO`) no arquivo JSON de tarefas.
 - **`playwright-cli`**: Habilidade de navegação, captura de snapshots, gravação de passos e inspeção DOM em tempo real via Playwright MCP Server.
-- **`gerar-page-object`**: Padrão de criação de Page Objects orientados a seletores semânticos e métodos de ação resilientes.
-- **`gerar-spec-playwright`**: Padrão de criação de arquivos de especificação Playwright (`.spec.ts`) determinísticos.
 - **`analisar-falhas-playwright`**: Árvore de decisão para diagnóstico de falhas em testes automatizados.
 - **`gerar-status-report`**: Consolidação de métricas e relatório de qualidade.
 - **`skill-creator`**: Utilitário interno para criação, validação e empacotamento de novas skills.
