@@ -21,13 +21,13 @@ Este projeto adota o conceito de **Agentic Workspace com Living Knowledge Base (
 
 ## 🤖 Squad de Agentes & Skills
 
-| Agente | Responsabilidade | Skills Chave |
-| :--- | :--- | :--- |
-| **01. Analista de Requisitos** | Mapeia regras de negócio e critérios de aceite no padrão INVEST | `extrair-criterios-aceite`, `gerenciar-contexto-negocio`, `inicializar-system-overview` |
-| **02. Analista de Testes** | Converte critérios de aceite em planos de teste com passos numerados e matriz de rastreabilidade | `formatar-plano-teste`, `gerenciar-contexto-negocio` |
-| **03. Engenheiro de Automação** | Gera e mantém Page Objects e Specs no Playwright | `gerar-page-object`, `gerar-spec-playwright` |
-| **04. Revisor & Correção (Self-Healing)** | Diagnostica falhas nos relatórios/logs e corrige seletores/timeouts | `analisar-falhas-playwright` |
-| **05. Relator de Status** | Consolida relatórios executivos de cobertura e qualidade | `gerar-status-report` |
+| Agente | Arquivo | Responsabilidade | Skills Chave |
+| :--- | :--- | :--- | :--- |
+| **01. Analista de Requisitos** | `.agents/agents/analista-requisitos.agent.md` | Mapeia regras de negócio e critérios de aceite no padrão INVEST | `extrair-criterios-aceite`, `gerenciar-contexto-negocio`, `inicializar-system-overview` |
+| **02. Analista de Testes** | `.agents/agents/analista-testes.agent.md` | Converte critérios de aceite em planos de teste com passos numerados e matriz de rastreabilidade | `formatar-plano-teste`, `gerenciar-contexto-negocio` |
+| **03. Engenheiro de Automação** | `.agents/agents/engenheiro-automacao.agent.md` | Desenvolve e mantém Page Objects (`pages/*.page.ts`), suítes por módulo (`tests/{modulo}.spec.ts`) e gerencia a fila de tarefas | `playwright-e2e`, `gerenciar-tarefas-teste`, `gerenciar-contexto-negocio`, `playwright-cli` |
+| **04. Revisor & Correção (Self-Healing)** | `.agents/agents/playwright-test-healer.agent.md` | Diagnostica falhas nos relatórios/logs e corrige seletores/timeouts | `analisar-falhas-playwright`, `playwright-cli` |
+| **05. Relator de Status** | `05-relator-status` | Consolida relatórios executivos de cobertura e qualidade | `gerar-status-report` |
 
 ---
 
@@ -38,6 +38,7 @@ Este projeto adota o conceito de **Agentic Workspace com Living Knowledge Base (
 3. **Onboarding Interativo**: O agente invoca a skill `inicializar-system-overview` e faz as 3 perguntas de onboarding para você.
 4. **Resposta e Configuração**: Você responde com a URL base e o fluxo geral da sua empresa.
 5. **Mapeamento do Sistema**: O agente salva o `system-overview.md` e, a partir desse momento, todo o time de QA passa a ter o mapa raiz da aplicação disponível para qualquer história de usuário subsequente.
+6. **Planejamento e Automação**: O **Analista de Testes** gera os planos e tarefas (`plano-teste/tarefas/{modulo}-tarefas.json`), e o **Engenheiro de Automação** implementa os Page Objects em `pages/` e os testes em `tests/{modulo}.spec.ts`, atualizando o catálogo no contexto.
 
 ---
 
@@ -46,12 +47,13 @@ Este projeto adota o conceito de **Agentic Workspace com Living Knowledge Base (
 ```text
 qa-muti-agents-framework/
 ├── .agents/
-│   ├── agents/            # Instruções e personas dos 5 agentes de QA
-│   ├── skills/            # Habilidades técnicas reutilizáveis (BDD, POM, etc.)
-│   └── context/           # Memória viva e contexto de negócio da aplicação
-├── docs/                  # Especificação e documentação do projeto
-├── pages/                 # Classes de Page Object Model (POM)
-├── tests/                 # Especificações de testes automatizados (.spec.ts)
+│   ├── agents/            # Instruções e personas dos 5 agentes de QA (.agent.md)
+│   ├── skills/            # Habilidades técnicas reutilizáveis (playwright-e2e, gerenciar-tarefas-teste, etc.)
+│   └── context/           # Memória viva e contexto de negócio da aplicação (system-overview.md, {modulo}.md)
+├── docs/                  # Especificação, requisitos refinados e arquitetura do projeto
+├── plano-teste/           # Planos de teste markdown e fila de tarefas JSON (tarefas/)
+├── pages/                 # Classes de Page Object Model (pages/*.page.ts)
+├── tests/                 # Especificações de testes automatizados por módulo (tests/{modulo}.spec.ts)
 ├── AGENTS.md              # Regras de arquitetura do squad agêntico
 ├── playwright.config.ts   # Configuração do Playwright Test
 └── package.json           # Dependências e scripts do projeto
