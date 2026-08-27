@@ -31,10 +31,11 @@ Ao receber uma User Story ou descrição de tarefa:
 
 1. **Detecção da Memória Viva Global (`system-overview.md`)**:
    - Verifique se a pasta `.agents/context/` possui o arquivo `system-overview.md`.
-   - **Se o `system-overview.md` NÃO existir ou estiver vazio**:
-     - Interrompa a análise do módulo e invoque a skill `inicializar-system-overview`.
-     - Realize a entrevista interativa de onboarding com o usuário para coletar: Nome do Sistema, URL Base, Perfis de Acesso e Rotas Principais.
-     - Salve o arquivo `.agents/context/system-overview.md` antes de prosseguir.
+   - **Se o `system-overview.md` NÃO existir, estiver vazio ou contiver dados pendentes**:
+     - 🛑 **BLOQUEIO OBRIGATÓRIO (HARD STOP):** Interrompa IMEDIATAMENTE qualquer geração de arquivos de módulo ou refinamento de requisitos.
+     - **PROIBIÇÃO ABSOLUTA:** É estritamente proibido criar o `system-overview.md` assumindo URLs fictícias (ex: `http://localhost:3000`), credenciais fictícias ou dados inventados.
+     - Invoque a skill `inicializar-system-overview` para apresentar a entrevista de onboarding ao usuário (usando a ferramenta `ask_question` ou chat).
+     - **PAUSE A EXECUÇÃO E AGUARDE A RESPOSTA DO USUÁRIO**. Não escreva nenhum arquivo em `.agents/context/` ou `docs/` antes da confirmação dos dados reais pelo usuário.
 
 2. **Detecção do Conhecimento do Módulo (`{modulo}.md`)**:
    - Identifique o módulo funcional correspondente (ex: `autenticacao`, `carrinho`, `checkout-pagamentos`).
@@ -47,7 +48,7 @@ Ao receber uma User Story ou descrição de tarefa:
 ## Step 2: Entrevista e Bloqueio Controlado (Human-in-the-Loop)
 Se o `system-overview.md` ou o arquivo de contexto do módulo não existir, estiver incompleto ou se a User Story contiver regras contraditórias:
 1. Não gere critérios de aceite incompletos ou baseados em suposições.
-2. Se faltar a visão global do sistema, invoque `inicializar-system-overview` para realizar o onboarding inicial.
+2. Se faltar a visão global do sistema, invoque `inicializar-system-overview`, pergunte ao usuário e **pare a execução até a resposta**.
 3. Se faltar o contexto do módulo, faça perguntas pontuais e objetivas ao usuário usando a seguinte estrutura:
 
 > "Identifiquei que o módulo `{modulo}` não possui contexto completo documentado em `.agents/context/`. Para prosseguir com qualidade, preciso confirmar:
@@ -100,7 +101,8 @@ Transforme a história refinada em critérios de aceite claros para o Analista d
 ```
 
 # Rules & Constraints
-- Sempre verifique se `.agents/context/system-overview.md` existe antes de iniciar o refinamento, executando `inicializar-system-overview` caso não exista.
+- **HARD STOP OBRIGATÓRIO:** Sempre verifique se `.agents/context/system-overview.md` existe antes de iniciar o refinamento. Se não existir ou estiver com pendências, execute `inicializar-system-overview`, apresente as perguntas ao usuário e **INTERROMPA A EXECUÇÃO** até que ele responda.
+- **PROIBIÇÃO ABSOLUTA DE DADOS FICTÍCIOS:** É estritamente proibido criar ou salvar `system-overview.md` com URLs (ex: `localhost:3000`), credenciais ou nomes de sistema assumidos por conta própria sem validação prévia com o usuário.
 - Nunca invente regras de negócio não descritas na história ou não confirmadas pelo usuário.
 - Sempre priorize a atualização do arquivo em `.agents/context/` antes de finalizar a entrega.
 - Não gere código Playwright ou classes de Page Object neste papel.

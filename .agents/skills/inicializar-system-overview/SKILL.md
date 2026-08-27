@@ -25,15 +25,20 @@ Esta skill guia o setup inicial do workspace de QA, mapeando a arquitetura basic
 2. Se existir, informe os dados atuais e pergunte se o usuario deseja apenas atualizar campos especificos.
 
 ### 2. Entrevista de Setup (Se o arquivo nao existir)
-Interrompa a execucao e apresente as seguintes perguntas ao usuario:
-1. Qual e o nome do sistema e a URL base utilizada nos testes?
-2. Quais sao os perfis de acesso padrao (ex: Visitante, Admin, Cliente) e como funciona a autenticacao?
-3. Quais sao as telas principais da aplicacao e o fluxo macro de navegacao entre elas?
+🛑 **BLOQUEIO OBRIGATORIO / PAUSA NA EXECUCAO:**
+1. Interrompa IMEDIATAMENTE a criacao de qualquer arquivo.
+2. Apresente as perguntas abaixo ao usuario (utilizando a ferramenta `ask_question` ou no chat):
+   * Qual e o nome do sistema e a URL base utilizada nos testes?
+   * Quais sao os perfis de acesso padrao (ex: Visitante, Admin, Cliente) e como funciona a autenticacao?
+   * Quais sao as telas principais da aplicacao e o fluxo macro de navegacao entre elas?
+3. **AGUARDE A RESPOSTA DO USUARIO.** Nao prossiga para a etapa 3 nem crie o arquivo `system-overview.md` antes de obter a resposta com os dados reais.
 
 ### 3. Geracao do Arquivo
-Com as respostas, crie o arquivo `.agents/context/system-overview.md` preenchendo todos os blocos estruturais definidos no template de referencia [references/system-overview-template.md](references/system-overview-template.md).
+Apenas **APOS** receber as respostas reais do usuario:
+Crie o arquivo `.agents/context/system-overview.md` preenchendo todos os blocos estruturais definidos no template de referencia [references/system-overview-template.md](references/system-overview-template.md).
 
 ## Regras e Diretrizes
+* **PROIBICAO DE DADOS FICTICIOS:** Jamais assuma URLs ficticias (como `localhost:3000`), nomes de sistema ou credenciais inventadas.
+* **BLOQUEIO HUMANO (Human-in-the-Loop):** Se o usuario nao responder imediatamente, a execucao DEVE permanecer paralisada. Nao crie arquivos com suposicoes para "avancar no fluxo".
 * Salvar obrigatoriamente como `system-overview.md` dentro de `.agents/context/`.
-* Nao assumir URLs ou credenciais ficticias; colete sempre os dados reais com o usuario.
 * Registrar apenas rotas macro, deixando o detalhamento de campos e botoes para os arquivos de modulos especificos.
