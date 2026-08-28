@@ -16,9 +16,14 @@ O projeto segue a abordagem de Agentic Workspace com Living Knowledge Base (cama
    * A cada nova entrega automatizada, a IA atualiza os arquivos de contexto com as novas telas, métodos de Page Object e regras aprendidas.
 
 3. Inspeção do DOM em Tempo Real (HARD RULE SEM EXCEÇÃO):
-   * O Engenheiro de Automação DEVE SEMPRE utilizar o Playwright CLI para acessar a aplicação viva, capturar a árvore de acessibilidade e extrair os locators reais antes de criar/editar Page Objects e testes.
+   * O Validador Manual e o Engenheiro de Automação DEVEM SEMPRE utilizar o Playwright CLI para acessar a aplicação viva, capturar a árvore de acessibilidade e extrair os locators reais antes de homologar e criar/editar Page Objects e testes.
    * É ESTRITAMENTE PROIBIDO adivinhar locators ou utilizar encadeamentos especulativos de fallback (`.or(...)`).
 
-4. Multiplataforma e Compatibilidade de Editores:
+4. Automação de Alta Fidelidade e Detecção de Bugs (HARD RULE SEM EXCEÇÃO):
+   * O squad de QA tem como missão primordial testar com exatidão e expor a verdade técnica do sistema.
+   * É ESTRITAMENTE PROIBIDO mascarar falhas da aplicação ou simular botões/fluxos ausentes para "forçar" um teste a passar (green).
+   * Se um recurso previsto nos requisitos não existir no frontend (ex: botão de edição ausente na UI) ou apresentar defeito funcional, o teste DEVE ser registrado como `BLOQUEADO` no controle de tarefas (`plano-teste/tarefas/{modulo}-tarefas.json`), com a justificativa técnica do bug/limitação, e marcado com `test.skip` no Playwright spec.
+
+5. Multiplataforma e Compatibilidade de Editores:
    * Estrutura nativa para Anti-Gravity via .agents/.
    * Arquivos ponte leves para Claude (CLAUDE.md), Cursor (.cursor/rules/) e GitHub Copilot (.github/).
