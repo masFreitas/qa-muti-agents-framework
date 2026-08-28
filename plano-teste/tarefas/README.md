@@ -6,9 +6,10 @@ Esta pasta contém os arquivos de controle em formato JSON com o status individu
 - `plano-teste/tarefas/{modulo}-tarefas.json`
 
 ## Status Possíveis dos Casos de Teste
-- `PENDENTE`: Caso de teste criado no plano de testes, aguardando automação.
-- `AUTOMATIZADO`: Código de teste Playwright gerado em `tests/` e verificado com sucesso pelo agente de automação.
-- `BLOQUEADO`: Automação impedida devido a bug na aplicação, seletor inacessível ou dependência não atendida.
+- `PENDENTE`: Caso de teste criado no plano de testes, aguardando validação manual e extração de locators.
+- `PRONTO_PARA_AUTOMATIZAR`: Caso de teste homologado manualmente pelo Validador Manual, com locators reais coletados em `.agents/context/{modulo}.md` e pronto para codificação.
+- `AUTOMATIZADO`: Código de teste Playwright gerado em `tests/` e verificado com sucesso pelo Engenheiro de Automação.
+- `BLOQUEADO`: Automação/Validação impedida devido a bug na aplicação, limitação de UI ou dependência não atendida.
 
 ## Estrutura Padrão do JSON
 
