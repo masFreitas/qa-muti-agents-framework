@@ -38,7 +38,7 @@ flowchart TD
         A1["01. Analista de Requisitos\n(analista-requisitos.agent.md)"]
         A2["02. Analista de Testes\n(analista-testes.agent.md)"]
         A3["03. Engenheiro de Automação\n(engenheiro-automacao.agent.md)"]
-        A4["04. Revisor / Self-Healing\n(playwright-test-healer.agent.md)"]
+        A4["04. Revisor & Correção\n(revisor-correcao.agent.md)"]
         A5["05. Relator de Status\n(05-relator-status)"]
     end
 
@@ -122,7 +122,7 @@ flowchart TD
 | **01. Analista de Requisitos** | `.agents/agents/analista-requisitos.agent.md` | Refinar histórias de usuário, validar regras de negócio e atualizar a memória funcional | `inicializar-system-overview`, `extrair-criterios-aceite`, `gerenciar-contexto-negocio` | User Story / Requisito bruto | `docs/requisitos-refinados/{modulo}.md` |
 | **02. Analista de Testes** | `.agents/agents/analista-testes.agent.md` | Criar planos de teste detalhados em passos numerados, matriz de rastreabilidade e arquivo JSON de tarefas | `formatar-plano-teste`, `gerenciar-contexto-negocio` | Requisitos Refinados + `.agents/context/` | `plano-teste/{modulo}-plan.md` e `{modulo}-tarefas.json` |
 | **03. Engenheiro de Automação** | `.agents/agents/engenheiro-automacao.agent.md` | Desenvolver classes Page Object (POM), suítes de teste Playwright executáveis e atualizar status | `playwright-e2e`, `gerenciar-tarefas-teste`, `gerenciar-contexto-negocio`, `playwright-cli` | Plano de Testes + Fila JSON | `pages/*.page.ts`, `tests/{modulo}.spec.ts` e `{modulo}-tarefas.json` atualizado |
-| **04. Revisor (Self-Healing)** | `.agents/agents/playwright-test-healer.agent.md` | Diagnosticar falhas de execução, atualizar seletores quebrados e ajustar timeouts | `analisar-falhas-playwright`, `playwright-cli` | Error Logs, Stacktraces, Specs | Correção em `pages/` e `tests/` |
+| **04. Revisor & Correção** | `.agents/agents/revisor-correcao.agent.md` | Diagnosticar falhas de execução, atualizar seletores quebrados, ajustar timeouts e restaurar testes falhos sob demanda | `analisar-falhas-playwright`, `playwright-cli`, `playwright-e2e`, `gerenciar-contexto-negocio`, `gerenciar-tarefas-teste` | Logs, Stacktraces, Specs, Keywords ("corrija o teste X") | Correção em `pages/`, `tests/`, `.agents/context/` e tarefas JSON |
 | **05. Relator de Status** | `05-relator-status` | Consolidar relatórios executivos de qualidade, cobertura de requisitos e lista de bugs | `gerar-status-report` | Logs do Playwright + Tarefas JSON | Relatório executivo de status |
 
 ---

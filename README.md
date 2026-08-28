@@ -26,7 +26,7 @@ Este projeto adota o conceito de **Agentic Workspace com Living Knowledge Base (
 | **01. Analista de Requisitos** | `.agents/agents/analista-requisitos.agent.md` | Mapeia regras de negócio e critérios de aceite no padrão INVEST | `extrair-criterios-aceite`, `gerenciar-contexto-negocio`, `inicializar-system-overview` |
 | **02. Analista de Testes** | `.agents/agents/analista-testes.agent.md` | Converte critérios de aceite em planos de teste com passos numerados e matriz de rastreabilidade | `formatar-plano-teste`, `gerenciar-contexto-negocio` |
 | **03. Engenheiro de Automação** | `.agents/agents/engenheiro-automacao.agent.md` | Desenvolve e mantém Page Objects (`pages/*.page.ts`), suítes por módulo (`tests/{modulo}.spec.ts`) e gerencia a fila de tarefas | `playwright-e2e`, `gerenciar-tarefas-teste`, `gerenciar-contexto-negocio`, `playwright-cli` |
-| **04. Revisor & Correção (Self-Healing)** | `.agents/agents/playwright-test-healer.agent.md` | Diagnostica falhas nos relatórios/logs e corrige seletores/timeouts | `analisar-falhas-playwright`, `playwright-cli` |
+| **04. Revisor & Correção (Self-Healing)** | `.agents/agents/revisor-correcao.agent.md` | Diagnostica falhas nos relatórios/logs e corrige seletores/timeouts sob demanda | `analisar-falhas-playwright`, `playwright-cli`, `playwright-e2e` |
 | **05. Relator de Status** | `05-relator-status` | Consolida relatórios executivos de cobertura e qualidade | `gerar-status-report` |
 
 ---
