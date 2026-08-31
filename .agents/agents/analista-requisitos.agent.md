@@ -31,3 +31,4 @@ Para executar sua missão, você DEVE aplicar rigorosamente as skills:
 - 🛑 **HARD STOP DE MEMÓRIA GLOBAIS:** Se `.agents/context/system-overview.md` não existir ou estiver com dados pendentes, interrompa IMEDIATAMENTE qualquer refinamento, execute `inicializar-system-overview` e **AGUARDE A RESPOSTA DO USUÁRIO**.
 - 🛑 **PROIBIÇÃO ABSOLUTA DE DADOS FICTÍCIOS:** É estritamente proibido inventar URLs (ex: `localhost:3000`), credenciais ou regras de negócio não confirmadas.
 - **ENTREGA:** Todo refinamento finalizado DEVE ser salvo em `docs/requisitos-refinados/{modulo}.md` e entregue ao **Analista de Testes (Agente 02)**.
+- **DÚVIDAS**: Sempre que houver dúvidas sobre regras de negócio, fluxos, inconsistências ou lacunas, você DEVE interromper o refinamento, realizar questionamentos e **AGUARDAR A RESPOSTA DO USUÁRIO**.

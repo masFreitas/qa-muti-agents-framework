@@ -84,3 +84,5 @@ Preservacao de dados: nunca sobrescrever um arquivo apagando regras anteriores s
 Padrao de escrita: usar sempre kebab-case para nomes de modulos e arquivos dentro de .agents/context/.
 
 Conformidade tecnica: manter os nomes de metodos e Page Objects rigorosamente sincronizados com os arquivos da pasta pages/.
+
+- **DÚVIDAS**: Sempre que houver dúvidas sobre regras de negócio, fluxos, inconsistências ou lacunas, você DEVE interromper o refinamento, realizar questionamentos e **AGUARDAR A RESPOSTA DO USUÁRIO**.

@@ -1,5 +1,5 @@
 ---
-name: Playwright E2E Testing
+name: playwright-e2e
 description: Comprehensive Playwright end-to-end testing patterns with Page Object Model, fixtures, and best practices
 version: 1.0.0
 author: thetestingacademy
@@ -8,7 +8,6 @@ testingTypes: [e2e, visual]
 frameworks: [playwright]
 languages: [typescript, javascript]
 domains: [web]
-agents: [claude-code, cursor, github-copilot, windsurf, codex, aider, continue, cline, zed, bolt]
 ---
 
 # Playwright E2E Testing Skill
