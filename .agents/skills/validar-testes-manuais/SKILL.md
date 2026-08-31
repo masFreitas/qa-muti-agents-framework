@@ -34,6 +34,14 @@ Esta skill estabelece o procedimento operacional para o **Agente Validador Manua
 2. **Se o recurso não existir no contêiner do item (ex: botão de edição ausente na linha do item), se houver bug ou erro:**
    - 🛑 **NÃO MASCARAR A FALHA OU SIMULAR BOTÕES AUSENTES.**
    - Registre a limitação ou defeito técnico com a justificativa exata em `"motivo_bloqueio"`.
+   - **Registro Completo do Bug:** Preencha obrigatoriamente o objeto `"detalhes_bug"` no item da tarefa JSON com os campos:
+     - `titulo`: `"[BUG][{modulo}] {Título resumido do defeito}"`
+     - `criticidade`: `"BLOQUEANTE"` | `"ALTA"` | `"MÉDIA"` | `"BAIXA"`
+     - `descricao`: Breve resumo do problema encontrado na UI viva.
+     - `passo_a_passo`: Lista ordenada dos passos exatos executados para reproduzir o bug.
+     - `resultado_esperado`: Comportamento esperado segundo os requisitos.
+     - `resultado_obtido`: Comportamento real observado na interface.
+     - `evidencias`: Locators faltantes, códigos de erro HTTP ou snapshots extraídos via Playwright CLI.
    - Marque a tarefa como `"BLOQUEADO"` no arquivo `plano-teste/tarefas/{modulo}-tarefas.json`.
 
 ### Passo 4: Handoff para a Automação

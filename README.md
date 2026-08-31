@@ -12,7 +12,7 @@ Este projeto adota o conceito de **Agentic Workspace com Living Knowledge Base (
 
 ### 🌟 Diferenciais
 
-- **Squad Especializado**: 5 agentes com papéis bem definidos (Requisitos, Análise, Automação, Self-Healing, Reports).
+- **Squad Especializado**: 6 agentes com papéis bem definidos (Requisitos, Análise, Validação Manual, Automação, Self-Healing, Relator de Status).
 - **Skills Reutilizáveis**: Padrões estruturais para BDD, Page Objects e asserções resilientes.
 - **Memória Persistente**: Contexto do sistema (`.agents/context/`) atualizado continuamente a cada nova automação.
 - **Multi-Editor**: Compatível com Antigravity (`.agents/`), Claude (`CLAUDE.md`), Cursor (`.cursor/rules/`) e Copilot (`.github/`).
@@ -28,7 +28,7 @@ Este projeto adota o conceito de **Agentic Workspace com Living Knowledge Base (
 | **03. Validador Manual & Exploratório** | `.agents/agents/validador-manual.agent.md` | Homologar funcionalidades na UI viva via Playwright CLI, coletar locators reais e transicionar tarefas para `PRONTO_PARA_AUTOMATIZAR` ou `BLOQUEADO` | `validar-testes-manuais`, `playwright-cli`, `gerenciar-contexto-negocio` |
 | **04. Engenheiro de Automação** | `.agents/agents/engenheiro-automacao.agent.md` | Desenvolve e mantém Page Objects (`pages/*.page.ts`), suítes por módulo (`tests/{modulo}.spec.ts`) usando locators homologados e gerencia a fila de tarefas | `playwright-e2e`, `gerenciar-tarefas-teste`, `gerenciar-contexto-negocio`, `playwright-cli` |
 | **05. Revisor & Correção (Self-Healing)** | `.agents/agents/revisor-correcao.agent.md` | Diagnostica falhas nos relatórios/logs e corrige seletores/timeouts sob demanda | `analisar-falhas-playwright`, `playwright-cli`, `playwright-e2e` |
-| **06. Relator de Status** | `06-relator-status` | Consolida relatórios executivos de cobertura e qualidade | `gerar-status-report` |
+| **06. Relator de Status** | `.agents/agents/relator-status.agent.md` | Consolida relatórios executivos de cobertura e qualidade | `gerar-status-report`, `gerenciar-tarefas-teste`, `gerenciar-contexto-negocio` |
 
 ---
 
@@ -48,7 +48,7 @@ Este projeto adota o conceito de **Agentic Workspace com Living Knowledge Base (
 ```text
 qa-muti-agents-framework/
 ├── .agents/
-│   ├── agents/            # Instruções e personas dos 5 agentes de QA (.agent.md)
+│   ├── agents/            # Instruções e personas dos 6 agentes de QA (.agent.md)
 │   ├── skills/            # Habilidades técnicas reutilizáveis (playwright-e2e, gerenciar-tarefas-teste, etc.)
 │   └── context/           # Memória viva e contexto de negócio da aplicação (system-overview.md, {modulo}.md)
 ├── docs/                  # Especificação, requisitos refinados e arquitetura do projeto

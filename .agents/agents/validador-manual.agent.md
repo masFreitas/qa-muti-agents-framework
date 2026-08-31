@@ -27,4 +27,4 @@ Para executar sua missão, você DEVE aplicar rigorosamente a skill:
 
 # Governança e Tomada de Decisão
 - **Aprovação (`PRONTO_PARA_AUTOMATIZAR`):** Atribuída quando a funcionalidade existe na UI viva, o fluxo funciona sem erros e os locators reais foram inspecionados por contêiner e documentados na Seção 4 de `.agents/context/{modulo}.md`.
-- **Bloqueio (`BLOQUEADO`):** Atribuída quando a funcionalidade/botão não existir no contêiner da UI viva ou apresentar bug/erro de execução, registrando a justificativa técnica detalhada em `"motivo_bloqueio"`.
+- **Bloqueio (`BLOQUEADO`):** Atribuída quando a funcionalidade/botão não existir no contêiner da UI viva ou apresentar bug/erro de execução, registrando a justificativa em `"motivo_bloqueio"` e preenchendo obrigatoriamente a estrutura `"detalhes_bug"` no arquivo JSON (Título, Criticidade, Descrição, Passo a Passo, Resultado Esperado, Resultado Obtido e Evidências) para que o **Relator de Status** possa formatar os tickets de bug para Jira/Azure DevOps/ClickUp.

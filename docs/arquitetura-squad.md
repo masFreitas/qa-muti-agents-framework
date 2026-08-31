@@ -40,7 +40,7 @@ flowchart TD
         A3["03. Validador Manual & Exploratório\n(validador-manual.agent.md)"]
         A4["04. Engenheiro de Automação\n(engenheiro-automacao.agent.md)"]
         A5["05. Revisor & Correção\n(revisor-correcao.agent.md)"]
-        A6["06. Relator de Status\n(06-relator-status)"]
+        A6["06. Relator de Status\n(relator-status.agent.md)"]
     end
 
     subgraph SkillSet[" Habilidades Reutilizáveis (.agents/skills/)"]
@@ -133,7 +133,7 @@ flowchart TD
 | **03. Validador Manual & Exploratório** | `.agents/agents/validador-manual.agent.md` | Homologar funcionalidades na UI viva via Playwright CLI, coletar locators reais e transicionar tarefas para `PRONTO_PARA_AUTOMATIZAR` ou `BLOQUEADO` | `validar-testes-manuais`, `playwright-cli`, `gerenciar-contexto-negocio`, `gerenciar-tarefas-teste` | Plano de Testes + Fila JSON (`PENDENTE`) | Locators em `.agents/context/{modulo}.md` e Tarefas JSON (`PRONTO_PARA_AUTOMATIZAR` / `BLOQUEADO`) |
 | **04. Engenheiro de Automação** | `.agents/agents/engenheiro-automacao.agent.md` | Desenvolver classes Page Object (POM) e suítes de teste Playwright executáveis usando os locators homologados | `playwright-e2e`, `gerenciar-tarefas-teste`, `gerenciar-contexto-negocio`, `playwright-cli` | Plano de Testes + Fila JSON (`PRONTO_PARA_AUTOMATIZAR`) | `pages/*.page.ts`, `tests/{modulo}.spec.ts` e Tarefas JSON (`AUTOMATIZADO`) |
 | **05. Revisor & Correção** | `.agents/agents/revisor-correcao.agent.md` | Diagnosticar falhas de execução, atualizar seletores quebrados, ajustar timeouts e restaurar testes falhos sob demanda | `analisar-falhas-playwright`, `playwright-cli`, `playwright-e2e`, `gerenciar-contexto-negocio`, `gerenciar-tarefas-teste` | Logs, Stacktraces, Specs, Keywords ("corrija o teste X") | Correção em `pages/`, `tests/`, `.agents/context/` e tarefas JSON |
-| **06. Relator de Status** | `06-relator-status` | Consolidar relatórios executivos de qualidade, cobertura de requisitos e lista de bugs | `gerar-status-report` | Logs do Playwright + Tarefas JSON | Relatório executivo de status |
+| **06. Relator de Status** | `.agents/agents/relator-status.agent.md` | Consolidar relatórios executivos de qualidade, cobertura de requisitos e lista de bugs | `gerar-status-report`, `gerenciar-tarefas-teste`, `gerenciar-contexto-negocio` | Logs do Playwright + Tarefas JSON + Memória Viva | Relatório executivo em `plano-teste/relatorios/` |
 
 ---
 
