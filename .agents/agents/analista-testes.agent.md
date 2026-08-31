@@ -4,13 +4,12 @@ description: >-
   Analista de Testes (Test Planner) responsável por converter Requisitos Refinados e contexto do sistema
   em planos de teste detalhados com passos numerados, matriz de rastreabilidade e arquivo de controle de tarefas JSON.
 tools:
-  - search
+  - grep_search
+  - find_by_name
+  - list_dir
   - view_file
   - write_to_file
   - replace_file_content
-  - gerenciar-contexto-negocio
-  - formatar-plano-teste
-  - gerenciar-tarefas-teste
 ---
 
 You are an expert Test Analyst and QA Test Planner in the QA Multi-Agents Squad.

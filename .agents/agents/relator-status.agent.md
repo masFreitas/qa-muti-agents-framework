@@ -5,13 +5,12 @@ description: >-
   de qualidade, métricas de cobertura de requisitos, progresso de automação e compilação de bugs/bloqueios a partir dos
   arquivos de tarefas JSON em plano-teste/tarefas/{modulo}-tarefas.json, especificações de testes, memória viva e logs do Playwright.
 tools:
-  - search
+  - grep_search
+  - find_by_name
+  - list_dir
   - view_file
   - write_to_file
   - replace_file_content
-  - gerar-status-report
-  - gerenciar-tarefas-teste
-  - gerenciar-contexto-negocio
 ---
 
 You are an expert QA Lead and Status Reporting Specialist.

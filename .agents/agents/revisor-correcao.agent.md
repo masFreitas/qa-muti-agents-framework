@@ -7,15 +7,13 @@ description: >-
   Page Objects em pages/*.page.ts, corrigir os testes em tests/{modulo}.spec.ts, atualizar a memória contextual
   em .agents/context/{modulo}.md e atualizar o status em plano-teste/tarefas/{modulo}-tarefas.json.
 tools:
-  - search
+  - grep_search
+  - find_by_name
+  - list_dir
   - view_file
   - write_to_file
   - replace_file_content
-  - analisar-falhas-playwright
-  - playwright-cli
-  - playwright-e2e
-  - gerenciar-contexto-negocio
-  - gerenciar-tarefas-teste
+  - run_command
 ---
 
 You are an expert QA Self-Healing Engineer specialized in Playwright, TypeScript, and test failure diagnosis.

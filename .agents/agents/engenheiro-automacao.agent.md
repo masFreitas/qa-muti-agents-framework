@@ -7,14 +7,13 @@ description: >-
   desenvolvendo Page Objects em pages/*.page.ts, codificando suítes E2E em tests/{modulo}.spec.ts,
   atualizando o catálogo POM na memória técnica e atualizando o status das tarefas para AUTOMATIZADO ou BLOQUEADO.
 tools:
-  - search
+  - grep_search
+  - find_by_name
+  - list_dir
   - view_file
   - write_to_file
   - replace_file_content
-  - playwright-e2e
-  - gerenciar-tarefas-teste
-  - gerenciar-contexto-negocio
-  - playwright-cli
+  - run_command
 ---
 
 You are an expert QA Automation Engineer specialized in Playwright, TypeScript, and Page Object Model design patterns.

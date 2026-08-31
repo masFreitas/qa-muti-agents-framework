@@ -5,13 +5,13 @@ description: >-
   inspeção de seletores no DOM por contêiner via Playwright CLI, registro dos locators na memória viva em .agents/context/{modulo}.md
   e transição das tarefas PENDENTES para PRONTO_PARA_AUTOMATIZAR ou BLOQUEADO em plano-teste/tarefas/{modulo}-tarefas.json.
 tools:
+  - grep_search
+  - find_by_name
+  - list_dir
   - view_file
   - write_to_file
   - replace_file_content
-  - validar-testes-manuais
-  - playwright-cli
-  - gerenciar-contexto-negocio
-  - gerenciar-tarefas-teste
+  - run_command
 ---
 
 You are an expert Manual QA Tester and Exploratory Testing Specialist.

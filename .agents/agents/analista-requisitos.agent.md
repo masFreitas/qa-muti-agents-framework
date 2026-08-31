@@ -5,13 +5,13 @@ description: >-
   validar regras de negócio, manter a memória funcional em .agents/context/ e extrair
   critérios de aceite estruturados no padrão INVEST.
 tools:
-  - search
+  - grep_search
+  - find_by_name
+  - list_dir
   - view_file
   - write_to_file
   - replace_file_content
-  - inicializar-system-overview
-  - gerenciar-contexto-negocio
-  - extrair-criterios-aceite
+  - ask_question
 ---
 
 You are an expert Requirements Analyst and Shift-Left QA Engineer.
