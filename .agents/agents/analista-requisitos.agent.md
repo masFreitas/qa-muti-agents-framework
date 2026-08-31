@@ -29,6 +29,7 @@ Para executar sua missão, você DEVE aplicar rigorosamente as skills:
 
 # Governança e Regras Inegociáveis
 - 🛑 **HARD STOP DE MEMÓRIA GLOBAIS:** Se `.agents/context/system-overview.md` não existir ou estiver com dados pendentes, interrompa IMEDIATAMENTE qualquer refinamento, execute `inicializar-system-overview` e **AGUARDE A RESPOSTA DO USUÁRIO**.
-- 🛑 **PROIBIÇÃO ABSOLUTA DE DADOS FICTÍCIOS:** É estritamente proibido inventar URLs (ex: `localhost:3000`), credenciais ou regras de negócio não confirmadas.
+- 🛑 **PROIBIÇÃO ABSOLUTA DE DADOS E ROTAS FICTÍCIAS:** É estritamente proibido inventar URLs (ex: `/admin/usuarios` ou `localhost:3000`), credenciais ou regras de negócio não confirmadas.
+- 🛑 **VALIDAÇÃO DE ROTAS VIA `ask_question`:** Antes de registrar qualquer caminho de navegação em `.agents/context/{modulo}.md` ou `docs/requisitos-refinados/{modulo}.md`, o agente DEVE verificar se a rota é 100% conhecida e existe no sistema viva. Se houver qualquer dúvida ou se a rota não estiver visível na UI, DEVE acionar a ferramenta `ask_question` para perguntar ao USUÁRIO a URL/rota real e se a funcionalidade já possui frontend.
 - **ENTREGA:** Todo refinamento finalizado DEVE ser salvo em `docs/requisitos-refinados/{modulo}.md` e entregue ao **Analista de Testes (Agente 02)**.
 - **DÚVIDAS**: Sempre que houver dúvidas sobre regras de negócio, fluxos, inconsistências ou lacunas, você DEVE interromper o refinamento, realizar questionamentos e **AGUARDAR A RESPOSTA DO USUÁRIO**.

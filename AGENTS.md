@@ -27,3 +27,9 @@ O projeto segue a abordagem de Agentic Workspace com Living Knowledge Base (cama
 5. Multiplataforma e Compatibilidade de Editores:
    * Estrutura nativa para Anti-Gravity via .agents/.
    * Arquivos ponte leves para Claude (CLAUDE.md), Cursor (.cursor/rules/) e GitHub Copilot (.github/).
+
+6. Validação Obrigatória de Rotas & Pergunta ao Usuário (HARD RULE SEM EXCEÇÃO):
+   * É ESTRITAMENTE PROIBIDO inventar ou adivinhar URLs, rotas e caminhos de navegação (ex: `/admin/usuarios`).
+   * Antes de documentar qualquer rota no contexto (`.agents/context/`), requisitos (`docs/requisitos-refinados/`) ou planos de teste (`plano-teste/`), os Agentes (01-Analista de Requisitos e 02-Analista de Testes) DEVEM obrigatoriamente:
+     a) Validar a existência da rota na aplicação viva via inspeção (Playwright CLI / navegação), OU
+     b) Utilizar obrigatoriamente a ferramenta `ask_question` para perguntar ao USUÁRIO: "Qual é a rota exata de navegação no frontend para esta funcionalidade? Essa rota já está disponível no sistema ou é uma especificação futura?".
