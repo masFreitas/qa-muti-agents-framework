@@ -37,9 +37,10 @@ flowchart TD
     subgraph Squad[" Squad de Agentes (.agents/agents/)"]
         A1["01. Analista de Requisitos\n(analista-requisitos.agent.md)"]
         A2["02. Analista de Testes\n(analista-testes.agent.md)"]
-        A3["03. Engenheiro de Automação\n(engenheiro-automacao.agent.md)"]
-        A4["04. Revisor & Correção\n(revisor-correcao.agent.md)"]
-        A5["05. Relator de Status\n(05-relator-status)"]
+        A3["03. Validador Manual & Exploratório\n(validador-manual.agent.md)"]
+        A4["04. Engenheiro de Automação\n(engenheiro-automacao.agent.md)"]
+        A5["05. Revisor & Correção\n(revisor-correcao.agent.md)"]
+        A6["06. Relator de Status\n(06-relator-status)"]
     end
 
     subgraph SkillSet[" Habilidades Reutilizáveis (.agents/skills/)"]
@@ -47,6 +48,7 @@ flowchart TD
         S_CTX["gerenciar-contexto-negocio"]
         S_REQ["extrair-criterios-aceite"]
         S_PLN["formatar-plano-teste"]
+        S_MAN["validar-testes-manuais"]
         S_E2E["playwright-e2e"]
         S_TSK["gerenciar-tarefas-teste"]
         S_CLI["playwright-cli"]
@@ -79,25 +81,32 @@ flowchart TD
     A2 <-->|Consulta Memória| S_CTX
     A2 -->|Skill: formatar-plano-teste| S_PLN
     A2 -->|Gera| DOC_PLN
-    A2 -->|Cria Fila| DOC_TSK
+    A2 -->|Cria Fila PENDENTE| DOC_TSK
 
     %% Agente 3
     DOC_PLN & DOC_TSK --> A3
-    A3 -->|Skill: gerenciar-tarefas-teste| S_TSK
-    A3 -->|Skill: playwright-e2e & playwright-cli| S_E2E & S_CLI
-    A3 -->|Gera/Atualiza| POM_CODE & TEST_CODE
-    A3 -->|Atualiza Catálogo POM no Contexto| S_CTX
+    A3 -->|Skill: validar-testes-manuais & playwright-cli| S_MAN & S_CLI
+    A3 -->|Atualiza Locators no Contexto| S_CTX
+    A3 -->|Atualiza Tarefas PRONTO_PARA_AUTOMATIZAR/BLOQUEADO| DOC_TSK
 
-    %% Execução & Agente 4 (Self-Healing)
+    %% Agente 4
+    DOC_TSK --> A4
+    A4 -->|Skill: gerenciar-tarefas-teste| S_TSK
+    A4 -->|Skill: playwright-e2e & playwright-cli| S_E2E & S_CLI
+    A4 -->|Gera/Atualiza| POM_CODE & TEST_CODE
+    A4 -->|Atualiza Catálogo POM no Contexto| S_CTX
+    A4 -->|Atualiza Tarefas AUTOMATIZADO/BLOQUEADO| DOC_TSK
+
+    %% Execução & Agente 5 (Self-Healing)
     TEST_CODE -->|Execução Playwright| EXEC_LOG
-    EXEC_LOG -->|Em caso de falhas| A4
-    A4 -->|Skill: analisar-falhas-playwright| S_FIX
-    A4 -->|Corrige Seletores/Asserts| POM_CODE & TEST_CODE
+    EXEC_LOG -->|Em caso de falhas| A5
+    A5 -->|Skill: analisar-falhas-playwright| S_FIX
+    A5 -->|Corrige Seletores/Asserts| POM_CODE & TEST_CODE
 
-    %% Agente 5
-    EXEC_LOG & DOC_TSK --> A5
-    A5 -->|Skill: gerar-status-report| S_REP
-    A5 -->|Gera| REP_OUT
+    %% Agente 6
+    EXEC_LOG & DOC_TSK --> A6
+    A6 -->|Skill: gerar-status-report| S_REP
+    A6 -->|Gera| REP_OUT
 
     %% Estilização
     classDef agentStyle fill:#1e293b,stroke:#38bdf8,stroke-width:2px,color:#fff
@@ -106,8 +115,8 @@ flowchart TD
     classDef artifactStyle fill:#451a03,stroke:#f97316,stroke-width:1px,color:#ffedd5
     classDef ideStyle fill:#312e81,stroke:#818cf8,stroke-width:1px,color:#e0e7ff
 
-    class A1,A2,A3,A4,A5 agentStyle
-    class S_SO,S_CTX,S_REQ,S_PLN,S_E2E,S_TSK,S_CLI,S_FIX,S_REP skillStyle
+    class A1,A2,A3,A4,A5,A6 agentStyle
+    class S_SO,S_CTX,S_REQ,S_PLN,S_MAN,S_E2E,S_TSK,S_CLI,S_FIX,S_REP skillStyle
     class SO,CTX memoryStyle
     class DOC_REQ,DOC_PLN,DOC_TSK,POM_CODE,TEST_CODE,EXEC_LOG,REP_OUT artifactStyle
     class AG,CL,CR,CP ideStyle

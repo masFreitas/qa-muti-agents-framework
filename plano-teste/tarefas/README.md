@@ -1,6 +1,6 @@
 # Pasta de Tarefas e Status de Automação (`plano-teste/tarefas/`)
 
-Esta pasta contém os arquivos de controle em formato JSON com o status individual de cada Caso de Teste (CT) a ser automatizado pelo **Engenheiro de Automação** (`03-automador-playwright`).
+Esta pasta contém os arquivos de controle em formato JSON com o status individual de cada Caso de Teste (CT) a ser homologado pelo **Validador Manual (Agente 03)** e automatizado pelo **Engenheiro de Automação (Agente 04)**.
 
 ## Nomenclatura dos Arquivos
 - `plano-teste/tarefas/{modulo}-tarefas.json`

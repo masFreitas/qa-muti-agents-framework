@@ -82,19 +82,25 @@ qa-agentic-workspace/
 * Entrada: Critérios de aceite refinados (docs/requisitos-refinados/) e contexto do sistema (.agents/context/).
 * Saída: Plano de testes em plano-teste/{modulo}-plan.md e arquivo de controle de tarefas em plano-teste/tarefas/{modulo}-tarefas.json.
 
-### 03. Engenheiro de Automação Playwright
-* Responsabilidade: Criar e atualizar classes de Page Objects em pages/ e especificações de teste em tests/, garantindo o reaproveitamento de componentes e asserções semânticas.
-* Skills associadas: gerar-page-object, gerar-spec-playwright, gerenciar-contexto-negocio (atualização).
-* Entrada: Plano de teste validado e Page Objects existentes.
-* Saída: Código Playwright (Page Objects e Specs) funcional e executável.
+### 03. Validador Manual e Exploratório
+* Responsabilidade: Homologar manualmente e exploratoriamente os casos de teste na aplicação viva via Playwright CLI, isolar seletores por contêiner, salvar seletores no contexto `.agents/context/{modulo}.md` e transicionar o status da tarefa em `plano-teste/tarefas/{modulo}-tarefas.json` para `PRONTO_PARA_AUTOMATIZAR` ou `BLOQUEADO`.
+* Skills associadas: validar-testes-manuais, playwright-cli, gerenciar-contexto-negocio, gerenciar-tarefas-teste.
+* Entrada: Plano de teste em `plano-teste/{modulo}-plan.md` e arquivo JSON de tarefas (`PENDENTE`).
+* Saída: Locators reais em `.agents/context/{modulo}.md` e tarefas JSON atualizadas (`PRONTO_PARA_AUTOMATIZAR` ou `BLOQUEADO`).
 
-### 04. Engenheiro de Revisão e Correção (Self-Healing)
+### 04. Engenheiro de Automação Playwright
+* Responsabilidade: Consumir tarefas homologadas (`PRONTO_PARA_AUTOMATIZAR`), inspecionar a aplicação viva via Playwright CLI para confirmação de locators, criar/atualizar classes de Page Objects em `pages/` e suítes de teste em `tests/`, atualizar o catálogo POM em `.agents/context/{modulo}.md` e transicionar tarefas para `AUTOMATIZADO` ou `BLOQUEADO`.
+* Skills associadas: playwright-e2e, gerenciar-tarefas-teste, gerenciar-contexto-negocio, playwright-cli.
+* Entrada: Plano de teste, tarefas JSON (`PRONTO_PARA_AUTOMATIZAR`) e seletores homologados no contexto.
+* Saída: Código Playwright (`pages/*.page.ts` e `tests/{modulo}.spec.ts`) executável e tarefas JSON atualizadas (`AUTOMATIZADO`).
+
+### 05. Engenheiro de Revisão e Correção (Self-Healing)
 * Responsabilidade: Analisar logs de falha do Playwright, relatórios de execução e traces para identificar se o erro é decorrente de seletor desatualizado, timeout ou bug real da aplicação.
-* Skills associadas: analisar-falhas-playwright, gerar-page-object.
+* Skills associadas: analisar-falhas-playwright, playwright-cli, playwright-e2e, gerenciar-contexto-negocio, gerenciar-tarefas-teste.
 * Entrada: Logs de erro, stacktrace e código de teste que falhou.
-* Saída: Correção pontual do código ou abertura de relatório de bug.
+* Saída: Correção pontual do código em `pages/` e `tests/`, atualização da memória contextual e tarefas JSON.
 
-### 05. Relator de Status de QA
+### 06. Relator de Status de QA
 * Responsabilidade: Consolidar o resultado da execução, cobertura de regras e lista de bugs encontrados em um relatório executivo claro para o time.
 * Skills associadas: gerar-status-report.
 * Entrada: Resultados de execução, casos de teste cobertos e eventuais falhas.
